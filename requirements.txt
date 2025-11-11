@@ -1,0 +1,10 @@
+finrl
+numpy
+pandas
+gymnasium
+stable-baselines3
+matplotlib
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch
+torchvision
+tqdm

@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rltrainer"
+version = "0.1.0"
+description = "A Reinforcement Learning training framework for stock trading"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "finrl",
+    "numpy",
+    "pandas",
+    "gymnasium",
+    "stable-baselines3",
+    "torch",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "black",
+    "flake8",
+    "mypy",
+]
+
+[tool.black]
+line-length = 120
+target-version = ["py39"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
