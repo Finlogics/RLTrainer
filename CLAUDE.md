@@ -29,3 +29,6 @@ method parameters should have type: eg. def unnormalize_value(self, ticker: str,
 - this project trains DRL algorithms that will trade in stock markets. it is preferred to use FinRL available from https://github.com/AI4Finance-Foundation/FinRL if the requested functionality is there.
 - we have gathered many examples from various repos related to finrl in finrl-examples folder. these can be used as examples to gather insight on how to use finRL.
 - temporary codes for diagnostics and other one-off matters should be created in ad-hoc folder.
+- this project has two modes: 
+1. curate raw data files available from csv files from the folder raw-data into processed-data folder.
+2. train DRL algorithms which trade securities in simulated environment as is done in finrl.

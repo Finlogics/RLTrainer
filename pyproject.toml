@@ -16,6 +16,7 @@ dependencies = [
     "stable-baselines3",
     "torch",
     "matplotlib",
+    "tqdm",
 ]
 
 [project.optional-dependencies]
