@@ -1,0 +1,14 @@
+[
+    {
+    "symbol": "GER40.i",
+    "raw_file": "GER40_M1_20230101_20251110.csv",
+    "week_start": "Monday",
+    "week_end": "Friday",
+    "data_start_time": "00:15",
+    "data_end_time": "20:59",
+    "trade_start_time": "00:20",
+    "trade_end_time": "20:55",
+    "price_normalization": 24000,
+    "spread_normalization": 17
+    }
+]
