@@ -53,6 +53,12 @@ class Preprocessor:
         start_time = pd.to_datetime(symbol_config['data_start_time'], format='%H:%M').time()
         end_time = pd.to_datetime(symbol_config['data_end_time'], format='%H:%M').time()
         valid_dates = df['Time'].dt.date.unique()
+        if len(valid_dates) > 0:
+            first_date = valid_dates[0]
+            first_expected_time = datetime.combine(first_date, start_time)
+            first_actual_time = df['Time'].iloc[0]
+            if first_actual_time > first_expected_time:
+                valid_dates = valid_dates[1:]
         full_range = []
         for date in valid_dates:
             current_datetime = datetime.combine(date, start_time)
