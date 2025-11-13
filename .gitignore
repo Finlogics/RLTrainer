@@ -1,9 +1,9 @@
 ad-hoc/
 raw-data/*
 processed-data/*
-models/
-results/
-logs/
+models/*
+results/*
+logs/*
 plan-prompts.txt
 market-data-availability.txt
 .vscode/

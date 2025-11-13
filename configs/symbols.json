@@ -10,5 +10,17 @@
     "trade_end_time": "20:55",
     "price_normalization": 24000,
     "spread_normalization": 17
+    },
+    {
+    "symbol": "NETH25",
+    "raw_file": "NETH25_M1_20230101_20251011.csv",
+    "week_start": "Monday",
+    "week_end": "Friday",
+    "data_start_time": "07:00",
+    "data_end_time": "20:59",
+    "trade_start_time": "07:15",
+    "trade_end_time": "20:55",
+    "price_normalization": 1000,
+    "spread_normalization": 2.5
     }
 ] 
