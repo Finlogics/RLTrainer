@@ -6,6 +6,8 @@ results/
 logs/
 plan-prompts.txt
 market-data-availability.txt
+.vscode/
+.claude/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

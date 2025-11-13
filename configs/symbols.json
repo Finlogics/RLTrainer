@@ -6,9 +6,9 @@
     "week_end": "Friday",
     "data_start_time": "00:15",
     "data_end_time": "20:59",
-    "trade_start_time": "00:20",
+    "trade_start_time": "00:30",
     "trade_end_time": "20:55",
     "price_normalization": 24000,
     "spread_normalization": 17
     }
-]
+] 

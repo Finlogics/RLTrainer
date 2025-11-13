@@ -29,21 +29,21 @@ class Preprocessor:
     def process_symbol(self, symbol_config: dict):
         """Process a single symbol's raw data."""
         df = self._load_raw_data(symbol_config)
-        self._validate_data(df, symbol_config)
+        df = self._filter_data_by_tod(df, symbol_config)
         df = self._fill_missing_data(df, symbol_config)
         df = self._split_time_column(df)
         first_date = df['Date'].iloc[0].replace('-', '')
         last_date = df['Date'].iloc[-1].replace('-', '')
         self._save_processed_data(df, symbol_config['symbol'], first_date, last_date)
 
-    def _validate_data(self, df: pd.DataFrame, symbol_config: dict):
-        """Validate that all data is within allowed TOD range."""
+    def _filter_data_by_tod(self, df: pd.DataFrame, symbol_config: dict) -> pd.DataFrame:
+        """Filter out data outside allowed TOD range."""
+        df = df.copy()
         df['Time'] = pd.to_datetime(df['Time']).dt.tz_localize(None)
         start_time = pd.to_datetime(symbol_config['data_start_time'], format='%H:%M').time()
         end_time = pd.to_datetime(symbol_config['data_end_time'], format='%H:%M').time()
-        invalid_tod = df[~df['Time'].dt.time.between(start_time, end_time)]
-        if not invalid_tod.empty:
-            raise ValueError(f"Data found outside TOD range {symbol_config['data_start_time']}-{symbol_config['data_end_time']}: {invalid_tod['Time'].iloc[0]}")
+        df = df[df['Time'].dt.time.between(start_time, end_time)]
+        return df
 
     def _fill_missing_data(self, df: pd.DataFrame, symbol_config: dict) -> pd.DataFrame:
         """Fill missing minute-level timestamps according to intraday and cross-day rules."""
